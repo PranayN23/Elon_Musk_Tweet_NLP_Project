@@ -21,6 +21,7 @@ import nltk
 nltk.download('vader_lexicon')
 from nltk.sentiment import SentimentIntensityAnalyzer
 import re
+import quantstats as qs
 
 
 def main():
@@ -132,6 +133,7 @@ def calculate_quant_stats(trade_data, only_positive):
     else:
         print("Full Results:")
     # we print out our trade data
+    qs.reports.metrics(trade_data[['strategy_return']])
 
 
 def plot_trade_data(trade_data, only_positive):
